@@ -1,0 +1,67 @@
+{
+  "project": "contactApi",
+  "role_of_user": "analyst_lead_devops",
+  "user_name": "Максим",
+  "purpose": "Java REST API: organization name in RF -> structured JSON with address and phones",
+  "geo": "RU only",
+  "orchestration": {
+    "entry": "rest-core",
+    "flow": [
+      "client (tg-bot | web/mobile) -> rest-core : user request",
+      "rest-core -> ai-core : LLM call",
+      "ai-core -> ProxyAI API -> LLM",
+      "ai-core -> rest-core : LLM answer",
+      "rest-core -> client : response"
+    ],
+    "forbidden": [
+      "tg-bot -> ai-core",
+      "web/mobile -> ai-core",
+      "rest-core -> ProxyAI",
+      "ai-core -> PostgreSQL",
+      "clients -> ProxyAI"
+    ]
+  },
+  "services": {
+    "rest-core": {
+      "owners": ["Дмитрий (middle)", "Андрей", "Влад"],
+      "stack": ["Java 21", "Spring Boot 4.1.1", "webmvc", "validation", "JPA", "PostgreSQL", "OpenFeign", "springdoc", "Lombok"],
+      "proposed_port": 8080,
+      "public_api": "POST /api/v1/contacts/search"
+    },
+    "ai-core": {
+      "owners": ["Дмитрий @Dimas5696", "Андрей"],
+      "stack": ["Java 21", "Spring Boot 4.1.1", "webmvc", "spring-ai-starter-model-openai", "Lombok"],
+      "proposed_port": 8081,
+      "internal_api": "POST /internal/v1/extract",
+      "llm_via": "ProxyAI OpenAI-compatible HTTP"
+    },
+    "tg-bot": {
+      "owners": ["Дмитрий @Dimas5696", "Олег"],
+      "stack": ["Java 21", "Spring Boot 4.1.1", "webmvc", "OpenFeign", "springdoc", "Lombok"],
+      "proposed_port": 8082,
+      "calls": "rest-core public API only"
+    },
+    "ContactApi_root": {
+      "note": "Spring Initializr leftover, not a 4th runtime service"
+    }
+  },
+  "proxyai": {
+    "type": "external OpenAI-compatible proxy",
+    "called_only_from": "ai-core",
+    "env": ["PROXYAI_BASE_URL", "PROXYAI_API_KEY", "PROXYAI_MODEL"]
+  },
+  "team": {
+    "architect_senior": "Дмитрий @Mipowka",
+    "senior_ai_tg": "Дмитрий @Dimas5696",
+    "middle_rest": ["Дмитрий", "Андрей", "Влад"],
+    "middle_ai": ["Андрей"],
+    "middle_tg": ["Олег"],
+    "andrey_also": "бухгалтер — не в dev backlog",
+    "ilya": "stop — do not assign",
+    "qa": "Наталья",
+    "devops_lead": "Максим"
+  },
+  "v1_out_of_scope": ["INN", "OGRN", "websites", "working hours", "billing", "external API keys"],
+  "repo_status": "empty Spring Boot skeletons, no business endpoints yet",
+  "next": "write developer tasks from architecture/backlog.md using architecture/task-guide.md"
+}
