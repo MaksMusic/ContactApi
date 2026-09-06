@@ -6,12 +6,14 @@
   "geo": "RU only",
   "orchestration": {
     "entry": "rest-core",
+    "our_services": ["tg-bot", "rest-core", "ai-core"],
     "flow": [
-      "client (tg-bot | web/mobile) -> rest-core : user request",
-      "rest-core -> ai-core : LLM call",
-      "ai-core -> ProxyAI API -> LLM",
-      "ai-core -> rest-core : LLM answer",
-      "rest-core -> client : response"
+      "user -> Telegram -> tg-bot -> rest-core : request",
+      "user -> web/mobile -> rest-core : request",
+      "rest-core -> ai-core : AI call",
+      "ai-core -> ProxyAI : third-party AI, no in-house LLM",
+      "ai-core -> rest-core : AI answer",
+      "rest-core -> tg-bot | web/mobile : response"
     ],
     "forbidden": [
       "tg-bot -> ai-core",
@@ -33,7 +35,7 @@
       "stack": ["Java 21", "Spring Boot 4.1.1", "webmvc", "spring-ai-starter-model-openai", "Lombok"],
       "proposed_port": 8081,
       "internal_api": "POST /internal/v1/extract",
-      "llm_via": "ProxyAI OpenAI-compatible HTTP"
+      "ai_via": "ProxyAI only, no in-house LLM"
     },
     "tg-bot": {
       "owners": ["Дмитрий @Dimas5696", "Олег"],
@@ -46,7 +48,7 @@
     }
   },
   "proxyai": {
-    "type": "external OpenAI-compatible proxy",
+    "type": "third-party AI, the only model access",
     "called_only_from": "ai-core",
     "env": ["PROXYAI_BASE_URL", "PROXYAI_API_KEY", "PROXYAI_MODEL"]
   },
@@ -63,5 +65,11 @@
   },
   "v1_out_of_scope": ["INN", "OGRN", "websites", "working hours", "billing", "external API keys"],
   "repo_status": "empty Spring Boot skeletons, no business endpoints yet",
-  "next": "write developer tasks from architecture/backlog.md using architecture/task-guide.md"
+  "sdd": {
+    "method": "specification-driven development",
+    "docs": "sdd/README.md",
+    "active_cycle": "sdd/cycle-01.md",
+    "cycle_01_goal": "service skeletons + frozen v0 field names; no search/extract endpoints yet"
+  },
+  "next": "finish cycle 01 DoD; freeze contract decisions; then write sdd/cycle-02.md"
 }
