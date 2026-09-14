@@ -1,0 +1,75 @@
+{
+  "project": "contactApi",
+  "role_of_user": "analyst_lead_devops",
+  "user_name": "Максим",
+  "purpose": "Java REST API: organization name in RF -> structured JSON with address and phones",
+  "geo": "RU only",
+  "orchestration": {
+    "entry": "rest-core",
+    "our_services": ["tg-bot", "rest-core", "ai-core"],
+    "flow": [
+      "user -> Telegram -> tg-bot -> rest-core : request",
+      "user -> web/mobile -> rest-core : request",
+      "rest-core -> ai-core : AI call",
+      "ai-core -> ProxyAI : third-party AI, no in-house LLM",
+      "ai-core -> rest-core : AI answer",
+      "rest-core -> tg-bot | web/mobile : response"
+    ],
+    "forbidden": [
+      "tg-bot -> ai-core",
+      "web/mobile -> ai-core",
+      "rest-core -> ProxyAI",
+      "ai-core -> PostgreSQL",
+      "clients -> ProxyAI"
+    ]
+  },
+  "services": {
+    "rest-core": {
+      "owners": ["Дмитрий (middle)", "Андрей", "Влад"],
+      "stack": ["Java 21", "Spring Boot 4.1.1", "webmvc", "validation", "JPA", "PostgreSQL", "OpenFeign", "springdoc", "Lombok"],
+      "proposed_port": 8080,
+      "public_api": "POST /api/v1/contacts/search"
+    },
+    "ai-core": {
+      "owners": ["Дмитрий @Dimas5696", "Андрей"],
+      "stack": ["Java 21", "Spring Boot 4.1.1", "webmvc", "spring-ai-starter-model-openai", "Lombok"],
+      "proposed_port": 8081,
+      "internal_api": "POST /internal/v1/extract",
+      "ai_via": "ProxyAI only, no in-house LLM"
+    },
+    "tg-bot": {
+      "owners": ["Дмитрий @Dimas5696", "Олег"],
+      "stack": ["Java 21", "Spring Boot 4.1.1", "webmvc", "OpenFeign", "springdoc", "Lombok"],
+      "proposed_port": 8082,
+      "calls": "rest-core public API only"
+    },
+    "ContactApi_root": {
+      "note": "Spring Initializr leftover, not a 4th runtime service"
+    }
+  },
+  "proxyai": {
+    "type": "third-party AI, the only model access",
+    "called_only_from": "ai-core",
+    "env": ["PROXYAI_BASE_URL", "PROXYAI_API_KEY", "PROXYAI_MODEL"]
+  },
+  "team": {
+    "architect_senior": "Дмитрий @Mipowka",
+    "senior_ai_tg": "Дмитрий @Dimas5696",
+    "middle_rest": ["Дмитрий", "Андрей", "Влад"],
+    "middle_ai": ["Андрей"],
+    "middle_tg": ["Олег"],
+    "andrey_also": "бухгалтер — не в dev backlog",
+    "ilya": "stop — do not assign",
+    "qa": "Наталья",
+    "devops_lead": "Максим"
+  },
+  "v1_out_of_scope": ["INN", "OGRN", "websites", "working hours", "billing", "external API keys"],
+  "repo_status": "empty Spring Boot skeletons, no business endpoints yet",
+  "sdd": {
+    "method": "specification-driven development",
+    "docs": "sdd/README.md",
+    "active_cycle": "sdd/cycle-01.md",
+    "cycle_01_goal": "service skeletons + frozen v0 field names; no search/extract endpoints yet"
+  },
+  "next": "finish cycle 01 DoD; freeze contract decisions; then write sdd/cycle-02.md"
+}
