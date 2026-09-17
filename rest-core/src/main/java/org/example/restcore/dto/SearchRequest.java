@@ -1,6 +1,9 @@
 package org.example.restcore.dto;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class SearchRequest {
+    @NotBlank(message = "поле не может быть пустым")
     private String query;
     private String city;
 
