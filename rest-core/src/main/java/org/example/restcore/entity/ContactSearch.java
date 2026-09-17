@@ -27,4 +27,5 @@ public class ContactSearch{
 
     @Column(nullable = false, updatable = false)
     private Instant createdAt = Instant.now();
+
 }
