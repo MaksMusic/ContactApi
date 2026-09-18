@@ -6,7 +6,7 @@
 
 1. Любая задача разработчику опирается на файлы в этой папке, а не на память чата.
 2. Сначала читаем `product.md` → `system.md` → `services.md` → `contracts.md` → `team.md`.
-3. Выданную задачу кладём в `../tasks/` — отдельный файл на человека. Бэклог — в `backlog.md`.
+3. Выданную задачу кладём в `../releases/release-NN/`. Сейчас: [релиз 02](../releases/release-02/README.md).
 4. Если решение меняет границы сервисов, контракт или поток — правим архитектуру **до** постановки задачи.
 
 | Файл | Зачем |
@@ -18,7 +18,7 @@
 | [team.md](team.md) | Команда и владельцы модулей |
 | [task-guide.md](task-guide.md) | Шаблон задачи разработчику |
 | [backlog.md](backlog.md) | Очередь задач по модулям |
-| [../tasks/](../tasks/) | Выданные задачи: один файл на человека |
+| [../releases/](../releases/README.md) | Все задачи: релиз 01 старые, релиз 02 новые |
 | [agent-context.json](agent-context.json) | Машиночитаемый снимок для следующих сессий |
 | [assets/architecture-diagram.png](assets/architecture-diagram.png) | Исходная схема contactApi |
 
