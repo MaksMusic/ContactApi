@@ -25,35 +25,32 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-        // Проверяем, что пришло сообщение с текстом
-        if (!update.hasMessage() || !update.getMessage().hasText()) {
-            return;
+        if (update.hasMessage() && update.getMessage().hasText()) {
+            String text = update.getMessage().getText();
+            Long chatId = update.getMessage().getChatId();
+
+            log.info("Получено сообщение от {}: {}", chatId, text);
+
+            String answer;
+            if ("/start".equals(text)) {
+                answer = "Бот работает! 🚀";
+            } else {
+                answer = "Поиск пока не готов";
+            }
+
+            sendMessage(chatId.toString(), answer);
         }
+    }
 
-        // Получаем данные из сообщения
-        String text = update.getMessage().getText();
-        Long chatId = update.getMessage().getChatId();
-
-        // Логируем входящее сообщение
-        log.info("Получено сообщение: {}", text);
-
-        // Формируем ответ
-        String answer;
-        if (text.equals("/start")) {
-            answer = "Бот работает";
-        } else {
-            answer = "Поиск пока не готов";
-        }
-
-        // Отправляем ответ
+    private void sendMessage(String chatId, String text) {
         try {
             SendMessage message = new SendMessage();
-            message.setChatId(chatId.toString());
-            message.setText(answer);
+            message.setChatId(chatId);
+            message.setText(text);
             execute(message);
-            log.info("Ответ отправлен: {}", answer);
+            log.info("Ответ отправлен: {}", text);
         } catch (Exception e) {
-            log.error("Ошибка при отправке: {}", e.getMessage());
+            log.error("Ошибка при отправке сообщения: {}", e.getMessage());
         }
     }
 }
