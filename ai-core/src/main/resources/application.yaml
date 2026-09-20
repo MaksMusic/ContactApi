@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: ai-core
+
+
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%level] %logger - %message%n"
+
+  level:
+    root: INFO
+
+server:
+  port: 9090

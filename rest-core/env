@@ -1,0 +1,13 @@
+# Database
+POSTGRES_HOST=5.188.23.30
+POSTGRES_PORT=5050
+POSTGRES_DB=app_db
+POSTGRES_USER_NAME=app_user
+POSTGRES_PASSWORD=AppDev_9kQm2nR4xL7p
+POSTGRES_DRIVER=org.postgresql.Driver
+
+# JPA
+JPA_DDL_AUTO=none
+JPA_SHOW_SQL=true
+JPA_FORMAT_SQL=true
+JPA_DATABASE_PLATFORM=org.hibernate.dialect.PostgreSQLDialect

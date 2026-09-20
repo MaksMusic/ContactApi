@@ -1,13 +1,8 @@
-Задачи команде.
-По файлу на человека. Нумерация: task-01, task-02 и дальше.
-Илье задачи не ставим.
+# Задачи
 
-task-01. Дмитрий Mipowka. Класс RequestIdFilter, поле requestId.
-task-02. Дмитрий Dimas5696. Классы HealthController и HealthResponse, поле status.
-task-03. Дмитрий. Класс ContactSearch, поля id, query, city, createdAt.
-task-04. Андрей. ExtractRequest поле text. ExtractResponse один плоский класс без вложенности.
-task-05. Влад. Классы SearchRequest, AddressDto, SearchResponse и все их поля.
-task-06. Олег. Класс BotProperties, поля token, username.
-task-07. Наталья. Папка qa и проверка полей query, city, status, address, phones.
+Сюда больше ничего не кладём.
 
-Следующий номер: task-08.
+- Релиз 01 (старые): [releases/release-01](../releases/release-01/README.md)
+- Релиз 02 (сейчас): [releases/release-02](../releases/release-02/README.md)
+
+Нумерация сквозная. Следующий свободный номер после релиза 02: **task-19**.
