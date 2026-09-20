@@ -13,5 +13,4 @@ public class HealthController {
     public HealthResponse health() {
         return new HealthResponse("UP");
     }
-
 }
