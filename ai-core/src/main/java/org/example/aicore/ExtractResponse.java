@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ExtractResponse {
-    private int id;
     private String status;
     private String organizationName;
     private String full;
@@ -17,7 +16,7 @@ public class ExtractResponse {
     private String building;
     private String postalCode;
     private String phones;
-    private String confidence;
+    private Double confidence;
     private String model;
     @JsonIgnore
     private String rawText;
