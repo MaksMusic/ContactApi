@@ -2,7 +2,7 @@
 
 Статусы: `idea` → `ready` → `in_progress` → `done`.
 
-Пока это **семена** для постановки, не выданные задачи. Когда пишем задачу разработчику — заполняем шаблон из `task-guide.md` и меняем статус на `ready`.
+Семена на релизы 04+. Выданное сейчас — [releases/release-03](../releases/release-03/README.md).
 
 ## EPIC-1. Название → адрес + телефоны
 
@@ -36,10 +36,31 @@
 
 | Дата | Номер | Кому | Ссылка / формулировка |
 |---|---|---|---|
-| 2026-09-04 | task-01 | @Mipowka | [tasks/Дмитрий-Mipowka.md](../tasks/Дмитрий-Mipowka.md) — пакеты + логи + requestId |
-| 2026-09-04 | task-02 | @Dimas5696 | [tasks/Дмитрий-Dimas5696.md](../tasks/Дмитрий-Dimas5696.md) — логи + health |
-| 2026-09-04 | task-03 | Дмитрий | [tasks/Дмитрий.md](../tasks/Дмитрий.md) — entity ContactSearch |
-| 2026-09-04 | task-04 | Андрей | [tasks/Андрей.md](../tasks/Андрей.md) — DTO extract |
-| 2026-09-04 | task-05 | Влад | [tasks/Влад.md](../tasks/Влад.md) — публичные DTO |
-| 2026-09-04 | task-06 | Олег | [tasks/Олег.md](../tasks/Олег.md) — конфиг бота + логи |
-| 2026-09-04 | task-07 | Наталья | [tasks/Наталья.md](../tasks/Наталья.md) — qa/ чек-лист + .http |
+| 2026-09-04 | task-01 | @Mipowka | [releases/release-01/task-01.md](../releases/release-01/task-01.md) — снята |
+| 2026-09-04 | task-02 | @Dimas5696 | [releases/release-01/task-02.md](../releases/release-01/task-02.md) — логи + health |
+| 2026-09-04 | task-03 | Дмитрий | [releases/release-01/task-03.md](../releases/release-01/task-03.md) — entity ContactSearch |
+| 2026-09-04 | task-04 | Андрей | [releases/release-01/task-04.md](../releases/release-01/task-04.md) — DTO extract |
+| 2026-09-04 | task-05 | Влад | [releases/release-01/task-05.md](../releases/release-01/task-05.md) — публичные DTO |
+| 2026-09-04 | task-06 | Олег | [releases/release-01/task-06.md](../releases/release-01/task-06.md) — конфиг бота + логи |
+| 2026-09-04 | task-07 | Наталья | [releases/release-01/task-07.md](../releases/release-01/task-07.md) — qa/ чек-лист |
+| 2026-09-04 | task-08 | Дмитрий Заварин | [releases/release-01/task-08.md](../releases/release-01/task-08.md) — ContactSearch |
+| 2026-09-18 | task-09 | Егор | [releases/release-02/task-09.md](../releases/release-02/task-09.md) — health rest-core |
+| 2026-09-18 | task-10 | Дмитрий | порт 8080 |
+| 2026-09-18 | task-11 | Андрей | поля Extract |
+| 2026-09-18 | task-12 | Влад | SearchStatus |
+| 2026-09-18 | task-13 | Олег | текст /start |
+| 2026-09-18 | task-14 | @Dimas5696 | порт 8081, убрать чужие DTO |
+| 2026-09-18 | task-15 | Наталья | папка qa |
+| 2026-09-18 | task-16 | Дмитрий Заварин | ErrorResponse |
+| 2026-09-18 | task-17 | Максим | env.example |
+| 2026-09-18 | task-18 | @Mipowka | заморозка контракта |
+| 2026-09-22 | task-19 | Егор | [releases/release-03/task-19.md](../releases/release-03/task-19.md) — search-заглушка |
+| 2026-09-22 | task-20 | Дмитрий | 400 без query |
+| 2026-09-22 | task-21 | Андрей | extract-заглушка |
+| 2026-09-22 | task-22 | Влад | маппер extract → search |
+| 2026-09-22 | task-23 | Олег | порт 8082 |
+| 2026-09-22 | task-24 | @Dimas5696 | 400 без text |
+| 2026-09-22 | task-25 | Наталья | qa/search.http |
+| 2026-09-22 | task-26 | Дмитрий Заварин | не писать в БД |
+| 2026-09-22 | task-27 | Максим | RUN.md |
+| 2026-09-22 | task-28 | @Mipowka | ревью заглушек |

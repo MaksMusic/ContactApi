@@ -81,6 +81,6 @@ sequenceDiagram
 
 ## Текущий цикл
 
-Активный: **[Цикл 02 / релиз 02](cycle-02.md)**. Задачи людям: [releases/release-02](../releases/release-02/README.md).
+Активный: **[Цикл 03 / релиз 03](cycle-03.md)**. Задачи людям: [releases/release-03](../releases/release-03/README.md).
 
-Цикл 01 (релиз 01) по каркасу закрыт. Search и extract по-прежнему нельзя, пока не принят релиз 02.
+Циклы 01 и 02 закрыты. Feign и ProxyAI — релиз 04, не писать сейчас.
