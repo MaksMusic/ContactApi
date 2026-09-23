@@ -33,7 +33,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
             String answer;
             if ("/start".equals(text)) {
-                answer = "Бот работает! 🚀";
+                answer = "Бот работает. Напиши название организации позже. Поиск пока не подключен.";
             } else {
                 answer = "Поиск пока не готов";
             }
