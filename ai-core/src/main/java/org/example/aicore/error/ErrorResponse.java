@@ -1,12 +1,12 @@
-package org.example.aicore;
+package org.example.aicore.error;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-public class ExtractRequest {
-    private String text;
+public class ErrorResponse {
+    private String message;
 }
